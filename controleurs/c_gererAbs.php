@@ -1,13 +1,13 @@
 <?php
-//include("vues/v_sommaire.php");
-$idVisiteur = $_SESSION['idVisiteur'];
+include("vues/v_sommaire.php");
 $aaaamm = getMois(date("d/m/Y"));
 $numAnnee =substr( $aaaamm,0,4);
 $numMois =substr( $aaaamm,4,2);
 $mois=$numMois;
 $action = $_REQUEST['action'];
-echo $_REQUEST['code'];
-/*
+$idVisiteur = $_SESSION['idVisiteur'];
+
+
 switch($action){
 	case 'validerAjoutAbs':{
 		$dateDebut = $_REQUEST['dateDebut'];
@@ -18,7 +18,7 @@ switch($action){
 			include("vues/v_erreurs.php");
 		}
 		else{
-			$pdo->creeNouveauFraisHorsForfait($idVisiteur,$dateDebut,$dateFin,$motif);
+			$pdo->creeNouvelleAbsence($idVisiteur,$dateDebut,$dateFin,$motif);
 		}
 		break;
 	}
