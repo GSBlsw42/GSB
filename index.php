@@ -21,6 +21,12 @@ switch($uc){
 	case 'etatFrais' :{
 		include("controleurs/c_etatFrais.php");break; 
 	}
+	case 'ajoutAbs' :{
+		include("controleurs/c_ajoutAbs.php");break;
+	}
+	case 'gererAbs' : {
+		include("controleurs/c_gererAbs.php");break;
+	}
 }
 include("vues/v_pied.php") ;
 ?>
