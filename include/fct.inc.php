@@ -176,6 +176,33 @@ function valideInfosFrais($dateFrais,$libelle,$montant){
 		}
 }
 /**
+ * Vérifie la validité des trois arguments : la date de debut, la date de fin et le motif
+ 
+ * des message d'erreurs sont ajoutés au tableau des erreurs
+ 
+ * @param $dateDebut
+ * @param $dateFin 
+ * @param $motif
+ */
+function valideInfosAbs($dateDebut,$dateFin,$motif){
+	if($dateDebut==""){
+		ajouterErreur("Le champ date ne doit pas être vide");
+	}
+	else{
+		if(!estDatevalide($dateDebut)){
+			ajouterErreur("Date debut invalide");
+		}	
+		else{
+			if(!estDatevalide($dateFin)){
+			ajouterErreur("Date fin invalide");
+			}			
+		}
+	}
+	if($motif == ""){
+		ajouterErreur("Le champ motif ne peut pas être vide");
+	}
+}
+/**
  * Ajoute le libellé d'une erreur au tableau des erreurs 
  
  * @param $msg : le libellé de l'erreur 

@@ -236,6 +236,22 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 /**
+ * Crée une nouvelle absence pour un visiteur
+ * à partir des informations fournies en paramètre
+ 
+ * @param $idVisiteur 
+ * @param $dateDebut
+ * @param $dateFin
+ * @param $motif : le motif
+*/
+	public function creeNouvelleAbsence($idVisiteur,$dateDebut,$dateFin,$motif){
+		$dateDebutFr = dateFrancaisVersAnglais($dateDebut);
+		$dateFinFr = dateFrancaisVersAnglais($dateFin);
+		$req = "INSERT INTO Absence 
+		VALUES('$idVisiteur','$dateDebutFr','$dateFinFr','$motif')";
+		PdoGsb::$monPdo->exec($req);
+	}
+/**
  * Supprime le frais hors forfait dont l'id est passé en argument
  
  * @param $idFrais 
