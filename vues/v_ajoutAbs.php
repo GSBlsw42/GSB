@@ -10,10 +10,16 @@
     	$( ".datepicker" ).datepicker();
     } );
     </script>
-    <style type="text/css">
+    <style type="text/css">	
+    	form{
+    		margin: 30px;
+    	}
     	tr {
     		display: inline;
     		margin: 15px 20px auto;
+    	}
+    	tr i{
+    		padding-right: 0.5em;
     	}
     </style>
 </head>
@@ -33,42 +39,47 @@ catch(Exception $e)
 
 ?>
 
-<h3>Ajouter un nouveau frais hors forfait</h3>
+<h3 style="text-align: center;">Ajouter un nouveau frais hors forfait</h3>
 <form method='POST' action='index.php?uc=gererAbs&action=validerAjoutAbs'>
-	<td>Motif</td>
 	<table class='tabNonQuadrille'>
+
 		<tr>
-			<td>Date de début <i class="fa fa-calendar" aria-hidden="true"></i></td>
+			<td><i class="fa fa-calendar" aria-hidden="true"></i></td>
 			<td>
-				<input  type='text' name=dateDebut class="datepicker" size='30' maxlength='45'>
+				<input  type='text' name=dateDebut placeholder="Date de début" class="datepicker" size='30' maxlength='45'>
 			</td>
 		</tr>
 		<tr>
-			<td>Date de Fin <i class="fa fa-calendar" aria-hidden="true"></i></td>
+			<td><i class="fa fa-calendar" aria-hidden="true"></i></td>
 			<td>
-				<input  type='text' name=dateFin class="datepicker" size='30' maxlength='45'>
+				<input  type='text' name=dateFin  placeholder="Date de fin" class="datepicker" size='30' maxlength='45'>
 			</td>
 		</tr>
 			
-
+			Motif 
 		    <select class="form-control" name="code">
-		       <?php $refMotif = $bdd->query('SELECT code, libelle
-		          FROM Motif
-		          ORDER BY libelle');
+		       <?php 
 
-		        while ($motif = $refMotif->fetch()) {
-			        $code = $motif["code"];
-			        $libelle = $motif["libelle"]; ?>
-			        <option value="<?=$code?>"><?=$libelle?></option>';
-			        <?php 
-			    }; 
-		        $refMotif->closeCursor();?>
+			       $refMotif = $bdd->query('SELECT code, libelle
+			          FROM Motif
+			          ORDER BY libelle');
+
+			        while ($motif = $refMotif->fetch()) {
+				        $code = $motif["code"];
+				        $libelle = $motif["libelle"]; ?>
+				        <option value="<?=$code?>"><?=$libelle?></option>';
+				        <?php 
+				    }; 
+			        $refMotif->closeCursor();
+
+		        ?>
 		    </select>
-
-
 	</table>
 
-	<input type='submit' value='Valider' name='valider'>
-	<input type='reset' value='Annuler' name='annuler'>
+	<div style="position: relative;left: 50%; width: 200px; margin-left: -100px; margin-top: 20px; text-align: center;">
+		<input type='submit' value='Valider' name='valider' style="margin: 10px;">
+		<input type='reset' value='Annuler' name='annuler' style="margin: 10px;">
+	</div>
+	
 
 </form>
