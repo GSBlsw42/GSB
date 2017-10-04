@@ -29,7 +29,7 @@ catch(Exception $e)
 </tr>
 	<td>Motif</td>
 
-          		<select class="form-control" name="refMotif">
+          		<select class="form-control" name="code">
               	<?php $refMotif = $bdd->query('SELECT code, libelle
                   FROM Motif
                   ORDER BY libelle');

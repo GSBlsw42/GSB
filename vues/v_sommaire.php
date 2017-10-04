@@ -1,12 +1,12 @@
 ﻿    <!-- Division pour le sommaire -->
     <div id="menuGauche">
      <div id="infosUtil">
-    
+
         <h2>
-    
+
 </h2>
-    
-      </div>  
+
+      </div>
         <ul id="menuList">
 			<li >
 				  Visiteur :<br>
