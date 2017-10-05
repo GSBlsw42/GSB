@@ -25,19 +25,7 @@
 </head>
 
 
-<?php
-try
-{
-	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=my_btsw2015;charset=utf8', 'user', 'user');
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
 
-?>
 
 <h3 style="text-align: center;">Ajouter un nouveau frais hors forfait</h3>
 <form method='POST' action='index.php?uc=gererAbs&action=validerAjoutAbs'>
